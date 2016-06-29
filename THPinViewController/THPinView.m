@@ -66,10 +66,9 @@
                                                             toItem:self attribute:NSLayoutAttributeCenterX
                                                         multiplier:1.0f constant:0.0f]];
         
-        _numPadView = [[THPinNumPadView alloc] initWithDelegate:self];
+        _numPadView = [[THPinNumPadView alloc] initWithDelegate:self numbersFont:numberFont];
         _numPadView.translatesAutoresizingMaskIntoConstraints = NO;
         _numPadView.backgroundColor = self.backgroundColor;
-        _numPadView.numbersFont = self.numbersFont;
         [self addSubview:_numPadView];
         [self addConstraint:[NSLayoutConstraint constraintWithItem:_numPadView attribute:NSLayoutAttributeCenterX
                                                          relatedBy:NSLayoutRelationEqual
