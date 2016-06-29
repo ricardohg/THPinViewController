@@ -23,7 +23,7 @@
 
 @implementation THPinNumButton
 
-- (instancetype)initWithNumber:(NSUInteger)number letters:(NSString *)letters
+- (instancetype)initWithNumber:(NSUInteger)number letters:(NSString *)letters numbersFont:(UIFont *)numbersFont
 {
     self = [super init];
     if (self)
@@ -43,8 +43,8 @@
         _numberLabel.translatesAutoresizingMaskIntoConstraints = NO;
         _numberLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)number];
         _numberLabel.textAlignment = NSTextAlignmentCenter;
-        if (self.numbersFont) {
-            _numberLabel.font = self.numbersFont;
+        if (numbersFont) {
+            _numberLabel.font = numbersFont;
         }
         else {
             _numberLabel.font = [UIFont systemFontOfSize:(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 41.0f : 36.0f];

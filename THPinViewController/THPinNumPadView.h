@@ -21,8 +21,7 @@
 
 @property (nonatomic, weak) id<THPinNumPadViewDelegate> delegate;
 @property (nonatomic, assign) BOOL hideLetters;
-@property (nonatomic, strong) UIFont *numbersFont;
 
-- (instancetype)initWithDelegate:(id<THPinNumPadViewDelegate>)delegate;
+- (instancetype)initWithDelegate:(id<THPinNumPadViewDelegate>)delegate numbersFont:(UIFont *)numbersFont;
 
 @end

@@ -14,16 +14,19 @@
 @property (nonatomic, assign) CGFloat hPadding;
 @property (nonatomic, assign) CGFloat vPadding;
 
+@property (nonatomic, strong) UIFont *numbersFont;
+
 @end
 
 @implementation THPinNumPadView
 
-- (instancetype)initWithDelegate:(id<THPinNumPadViewDelegate>)delegate
+- (instancetype)initWithDelegate:(id<THPinNumPadViewDelegate>)delegate numbersFont:(UIFont *)numbersFont
 {
     self = [self init];
     if (self)
     {
         _delegate = delegate;
+        _numbersFont = numbersFont;
     }
     return self;
 }

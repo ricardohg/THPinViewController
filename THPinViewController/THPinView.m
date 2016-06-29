@@ -22,6 +22,9 @@
 @property (nonatomic, assign) CGFloat paddingBetweenInputCirclesAndNumPad;
 @property (nonatomic, assign) CGFloat paddingBetweenNumPadAndBottomButton;
 
+@property (nonatomic, strong) UIFont *promptFont;
+@property (nonatomic, strong) UIFont *numbersFont;
+
 
 @property (nonatomic, strong) NSMutableString *input;
 
@@ -29,13 +32,16 @@
 
 @implementation THPinView
 
-- (instancetype)initWithDelegate:(id<THPinViewDelegate>)delegate
+- (instancetype)initWithDelegate:(id<THPinViewDelegate>)delegate numberFont:(UIFont *)numberFont andPromptFont:(UIFont *)promptFont
 {
     self = [super init];
     if (self)
     {
         _delegate = delegate;
         _input = [NSMutableString string];
+        
+        _numbersFont = numberFont;
+        _promptFont = promptFont;
         
         _promptLabel = [[UILabel alloc] init];
         _promptLabel.translatesAutoresizingMaskIntoConstraints = NO;
