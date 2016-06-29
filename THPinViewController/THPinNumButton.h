@@ -13,8 +13,10 @@
 
 @property (nonatomic, readonly, assign) NSUInteger number;
 @property (nonatomic, readonly, copy) NSString *letters;
+@property (nonatomic, strong) UIFont *numbersFont;
 
-- (instancetype)initWithNumber:(NSUInteger)number letters:(NSString *)letters NS_DESIGNATED_INITIALIZER;
+//- (instancetype)initWithNumber:(NSUInteger)number letters:(NSString *)letters NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithNumber:(NSUInteger)number letters:(NSString *)letters;
 
 + (CGFloat)diameter;
 

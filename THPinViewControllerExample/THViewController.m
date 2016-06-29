@@ -41,21 +41,21 @@ static const NSUInteger THNumberOfPinEntries = 6;
     [self.loginLogoutButton setTitle:@"Enter PIN" forState:UIControlStateNormal];
     self.loginLogoutButton.tintColor = [UIColor whiteColor];
     [self.view addSubview:self.loginLogoutButton];
-    
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.loginLogoutButton attribute:NSLayoutAttributeCenterX
-                                                          relatedBy:NSLayoutRelationEqual
-                                                             toItem:self.view attribute:NSLayoutAttributeCenterX
-                                                         multiplier:1.0f constant:0.0f]];
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.loginLogoutButton attribute:NSLayoutAttributeCenterY
-                                                          relatedBy:NSLayoutRelationEqual
-                                                             toItem:self.view attribute:NSLayoutAttributeTop
-                                                         multiplier:1.0f constant:60.0f]];
-    NSDictionary *views = @{ @"secretContentView" : self.secretContentView };
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(20)-[secretContentView]-(20)-|"
-                                                                      options:0 metrics:nil views:views]];
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(120)-[secretContentView]-(20)-|"
-                                                                      options:0 metrics:nil views:views]];
-    self.locked = YES;
+//    
+//    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.loginLogoutButton attribute:NSLayoutAttributeCenterX
+//                                                          relatedBy:NSLayoutRelationEqual
+//                                                             toItem:self.view attribute:NSLayoutAttributeCenterX
+//                                                         multiplier:1.0f constant:0.0f]];
+//    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.loginLogoutButton attribute:NSLayoutAttributeCenterY
+//                                                          relatedBy:NSLayoutRelationEqual
+//                                                             toItem:self.view attribute:NSLayoutAttributeTop
+//                                                         multiplier:1.0f constant:60.0f]];
+//    NSDictionary *views = @{ @"secretContentView" : self.secretContentView };
+//    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(20)-[secretContentView]-(20)-|"
+//                                                                      options:0 metrics:nil views:views]];
+//    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(120)-[secretContentView]-(20)-|"
+//                                                                      options:0 metrics:nil views:views]];
+//    self.locked = YES;
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidEnterBackground:)
                                                  name:UIApplicationDidEnterBackgroundNotification object:nil];
@@ -101,6 +101,8 @@ static const NSUInteger THNumberOfPinEntries = 6;
     UIColor *darkBlueColor = [UIColor colorWithRed:0.012f green:0.071f blue:0.365f alpha:1.0f];
     pinViewController.promptColor = darkBlueColor;
     pinViewController.view.tintColor = darkBlueColor;
+    pinViewController.hideLetters = YES;
+    pinViewController.disableCancel = YES;
     
     // for a solid background color, use this:
     pinViewController.backgroundColor = [UIColor whiteColor];

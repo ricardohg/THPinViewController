@@ -22,6 +22,7 @@
 @property (nonatomic, assign) CGFloat paddingBetweenInputCirclesAndNumPad;
 @property (nonatomic, assign) CGFloat paddingBetweenNumPadAndBottomButton;
 
+
 @property (nonatomic, strong) NSMutableString *input;
 
 @end
@@ -39,7 +40,12 @@
         _promptLabel = [[UILabel alloc] init];
         _promptLabel.translatesAutoresizingMaskIntoConstraints = NO;
         _promptLabel.textAlignment = NSTextAlignmentCenter;
-        _promptLabel.font = [UIFont systemFontOfSize:(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 22.0f : 18.0f];
+        if (self.promptFont) {
+            _promptLabel.font = self.promptFont;
+        }
+        else {
+            _promptLabel.font = [UIFont systemFontOfSize:(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 22.0f : 18.0f];
+        }
         [_promptLabel setContentCompressionResistancePriority:UILayoutPriorityFittingSizeLevel
                                                       forAxis:UILayoutConstraintAxisHorizontal];
         [self addSubview:_promptLabel];
@@ -57,6 +63,7 @@
         _numPadView = [[THPinNumPadView alloc] initWithDelegate:self];
         _numPadView.translatesAutoresizingMaskIntoConstraints = NO;
         _numPadView.backgroundColor = self.backgroundColor;
+        _numPadView.numbersFont = self.numbersFont;
         [self addSubview:_numPadView];
         [self addConstraint:[NSLayoutConstraint constraintWithItem:_numPadView attribute:NSLayoutAttributeCenterX
                                                          relatedBy:NSLayoutRelationEqual
@@ -189,19 +196,15 @@
 
 - (void)updateBottomButton
 {
-    NSBundle *bundle = [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:@"THPinViewController"
-                                                                                ofType:@"bundle"]];
     if ([self.input length] == 0) {
         self.bottomButton.hidden = self.disableCancel;
-        [self.bottomButton setTitle:NSLocalizedStringFromTableInBundle(@"cancel_button_title", @"THPinViewController",
-                                                                       bundle, nil)
+        [self.bottomButton setTitle:@"Cancel"
                            forState:UIControlStateNormal];
         [self.bottomButton removeTarget:self action:@selector(delete:) forControlEvents:UIControlEventTouchUpInside];
         [self.bottomButton addTarget:self action:@selector(cancel:) forControlEvents:UIControlEventTouchUpInside];
     } else {
         self.bottomButton.hidden = NO;
-        [self.bottomButton setTitle:NSLocalizedStringFromTableInBundle(@"delete_button_title", @"THPinViewController",
-                                                                       bundle, nil)
+        [self.bottomButton setTitle:@""
                            forState:UIControlStateNormal];
         [self.bottomButton removeTarget:self action:@selector(cancel:) forControlEvents:UIControlEventTouchUpInside];
         [self.bottomButton addTarget:self action:@selector(delete:) forControlEvents:UIControlEventTouchUpInside];

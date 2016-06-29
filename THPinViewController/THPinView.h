@@ -29,7 +29,10 @@
 @property (nonatomic, strong) UIColor *promptColor;
 @property (nonatomic, assign) BOOL hideLetters;
 @property (nonatomic, assign) BOOL disableCancel;
+@property (nonatomic, strong) UIFont *promptFont;
+@property (nonatomic, strong) UIFont *numbersFont;
 
-- (instancetype)initWithDelegate:(id<THPinViewDelegate>)delegate NS_DESIGNATED_INITIALIZER;
+//- (instancetype)initWithDelegate:(id<THPinViewDelegate>)delegate NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithDelegate:(id<THPinViewDelegate>)delegate;
 
 @end

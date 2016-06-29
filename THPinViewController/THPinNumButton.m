@@ -43,7 +43,12 @@
         _numberLabel.translatesAutoresizingMaskIntoConstraints = NO;
         _numberLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)number];
         _numberLabel.textAlignment = NSTextAlignmentCenter;
-        _numberLabel.font = [UIFont systemFontOfSize:(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 41.0f : 36.0f];
+        if (self.numbersFont) {
+            _numberLabel.font = self.numbersFont;
+        }
+        else {
+            _numberLabel.font = [UIFont systemFontOfSize:(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 41.0f : 36.0f];
+        }
         [contentView addSubview:_numberLabel];
         [contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[numberLabel]|" options:0
                                                                             metrics:nil

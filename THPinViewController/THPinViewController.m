@@ -51,6 +51,8 @@
     self.pinView.promptColor = self.promptColor;
     self.pinView.hideLetters = self.hideLetters;
     self.pinView.disableCancel = self.disableCancel;
+    self.pinView.promptFont = self.promptFont;
+    self.pinView.numbersFont = self.numbersFont;
     self.pinView.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:self.pinView];
     // center pin view
