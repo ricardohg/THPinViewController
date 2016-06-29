@@ -16,17 +16,22 @@
 @property (nonatomic, strong) UIView *blurView;
 @property (nonatomic, strong) NSArray *blurViewContraints;
 
+@property (nonatomic, strong) UIFont *numbersFont;
+@property (nonatomic, strong) UIFont *promptFont;
+
 @end
 
 @implementation THPinViewController
 
-- (instancetype)initWithDelegate:(id<THPinViewControllerDelegate>)delegate
+- (instancetype)initWithDelegate:(id<THPinViewControllerDelegate>)delegate numberFont:(UIFont *)numberFont andPromptFont:(UIFont *)promptFont
 {
     self = [super init];
     if (self) {
         _delegate = delegate;
         _backgroundColor = [UIColor whiteColor];
         _translucentBackground = NO;
+        _numbersFont = numberFont;
+        _promptFont = promptFont;
         NSBundle *bundle = [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:@"THPinViewController"
                                                                                     ofType:@"bundle"]];
         _promptTitle = NSLocalizedStringFromTableInBundle(@"prompt_title", @"THPinViewController", bundle, nil);

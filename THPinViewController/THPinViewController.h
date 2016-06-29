@@ -42,10 +42,7 @@ static const NSInteger THPinViewControllerContentViewTag = 14742;
 @property (nonatomic, assign) BOOL hideLetters; // hides the letters on the number buttons
 @property (nonatomic, assign) BOOL disableCancel; // hides the cancel button
 
-@property (nonatomic, strong) UIFont *numbersFont;
-@property (nonatomic, strong) UIFont *promptFont;
-
 //- (instancetype)initWithDelegate:(id<THPinViewControllerDelegate>)delegate NS_DESIGNATED_INITIALIZER;
-- (instancetype)initWithDelegate:(id<THPinViewControllerDelegate>)delegate;
+- (instancetype)initWithDelegate:(id<THPinViewControllerDelegate>)delegate numberFont:(UIFont *)numberFont andPromptFont:(UIFont *)promptFont;
 
 @end
